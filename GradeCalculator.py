@@ -1,4 +1,6 @@
 import datetime
+import platform
+import subprocess
 
 done = False
 
@@ -166,6 +168,19 @@ else:
 file.write("\n")
 file.write(SEPARATOR)
 file.close()
+
+print("Data written to " + filewritename)
+
+os = platform.system()
+
+if os == "Windows":
+    subprocess.Popen(["notepad.exe", filewritename])
+elif os == "Darwin":
+    subprocess.Popen(["open", "-a", "TextEdit", filewritename])
+else:
+    print("OS unrecognized by the program.  Please open " + filewritename + ", which is in the same directory as this program")
+
+
 
 
 
