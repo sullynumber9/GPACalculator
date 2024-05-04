@@ -1,6 +1,7 @@
 import datetime
 import platform
 import subprocess
+import math
 
 done = False
 
@@ -72,6 +73,9 @@ for i in range(len(gpa)):
 cGPA = (sum / (unitsum))
 cGPA_four_pt = (four_pt_sum / unitsum)
 
+rounded_cGPA_12pt = round(cGPA, 1)
+rounded_cGPA_4pt = round(cGPA_four_pt, 1)
+
 if cGPA >= 12:
     letter = "A+"
     percentage = "90-100"
@@ -141,7 +145,9 @@ file.write("\n")
 file.write("\n")
 file.write(SEPARATOR)
 file.write("\ncGPA - 12pt Scale: " + str(cGPA))
+file.write("\ncGPA - 12pt Scale Rounded: " + str(rounded_cGPA_12pt))
 file.write("\ncGPA - 4pt Scale: " + str(cGPA_four_pt))
+file.write("\ncGPA - 4pt Scale Rounded: " + str(rounded_cGPA_4pt))
 file.write("\nClosest Letter: " + letter)
 file.write("\nClosest Percentage: " + percentage)
 file.write("\n")
